@@ -13,7 +13,10 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as CheckinRouteImport } from './routes/checkin'
 import { Route as ConsentRouteImport } from './routes/consent'
 import { Route as DashboardRouteImport } from './routes/dashboard'
+import { Route as InboxRouteImport } from './routes/inbox'
+import { Route as MessagesRouteImport } from './routes/messages'
 import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as SettingsRouteImport } from './routes/settings'
 import { Route as WellbeingRouteImport } from './routes/wellbeing'
 
 const IndexRoute = IndexRouteImport.update({
@@ -36,9 +39,24 @@ const DashboardRoute = DashboardRouteImport.update({
   path: '/dashboard',
   getParentRoute: () => rootRouteImport,
 } as any)
+const InboxRoute = InboxRouteImport.update({
+  id: '/inbox',
+  path: '/inbox',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MessagesRoute = MessagesRouteImport.update({
+  id: '/messages',
+  path: '/messages',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PrivacyRoute = PrivacyRouteImport.update({
   id: '/privacy',
   path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SettingsRoute = SettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
   getParentRoute: () => rootRouteImport,
 } as any)
 const WellbeingRoute = WellbeingRouteImport.update({
@@ -52,7 +70,10 @@ export interface FileRoutesByFullPath {
   '/checkin': typeof CheckinRoute
   '/consent': typeof ConsentRoute
   '/dashboard': typeof DashboardRoute
+  '/inbox': typeof InboxRoute
+  '/messages': typeof MessagesRoute
   '/privacy': typeof PrivacyRoute
+  '/settings': typeof SettingsRoute
   '/wellbeing': typeof WellbeingRoute
 }
 export interface FileRoutesByTo {
@@ -60,7 +81,10 @@ export interface FileRoutesByTo {
   '/checkin': typeof CheckinRoute
   '/consent': typeof ConsentRoute
   '/dashboard': typeof DashboardRoute
+  '/inbox': typeof InboxRoute
+  '/messages': typeof MessagesRoute
   '/privacy': typeof PrivacyRoute
+  '/settings': typeof SettingsRoute
   '/wellbeing': typeof WellbeingRoute
 }
 export interface FileRoutesById {
@@ -69,22 +93,45 @@ export interface FileRoutesById {
   '/checkin': typeof CheckinRoute
   '/consent': typeof ConsentRoute
   '/dashboard': typeof DashboardRoute
+  '/inbox': typeof InboxRoute
+  '/messages': typeof MessagesRoute
   '/privacy': typeof PrivacyRoute
+  '/settings': typeof SettingsRoute
   '/wellbeing': typeof WellbeingRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/checkin' | '/consent' | '/dashboard' | '/privacy' | '/wellbeing'
+    | '/'
+    | '/checkin'
+    | '/consent'
+    | '/dashboard'
+    | '/inbox'
+    | '/messages'
+    | '/privacy'
+    | '/settings'
+    | '/wellbeing'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/checkin' | '/consent' | '/dashboard' | '/privacy' | '/wellbeing'
+  to:
+    | '/'
+    | '/checkin'
+    | '/consent'
+    | '/dashboard'
+    | '/inbox'
+    | '/messages'
+    | '/privacy'
+    | '/settings'
+    | '/wellbeing'
   id:
     | '__root__'
     | '/'
     | '/checkin'
     | '/consent'
     | '/dashboard'
+    | '/inbox'
+    | '/messages'
     | '/privacy'
+    | '/settings'
     | '/wellbeing'
   fileRoutesById: FileRoutesById
 }
@@ -93,7 +140,10 @@ export interface RootRouteChildren {
   CheckinRoute: typeof CheckinRoute
   ConsentRoute: typeof ConsentRoute
   DashboardRoute: typeof DashboardRoute
+  InboxRoute: typeof InboxRoute
+  MessagesRoute: typeof MessagesRoute
   PrivacyRoute: typeof PrivacyRoute
+  SettingsRoute: typeof SettingsRoute
   WellbeingRoute: typeof WellbeingRoute
 }
 
@@ -127,11 +177,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/inbox': {
+      id: '/inbox'
+      path: '/inbox'
+      fullPath: '/inbox'
+      preLoaderRoute: typeof InboxRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/messages': {
+      id: '/messages'
+      path: '/messages'
+      fullPath: '/messages'
+      preLoaderRoute: typeof MessagesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/privacy': {
       id: '/privacy'
       path: '/privacy'
       fullPath: '/privacy'
       preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/settings': {
+      id: '/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof SettingsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/wellbeing': {
@@ -149,7 +220,10 @@ const rootRouteChildren: RootRouteChildren = {
   CheckinRoute: CheckinRoute,
   ConsentRoute: ConsentRoute,
   DashboardRoute: DashboardRoute,
+  InboxRoute: InboxRoute,
+  MessagesRoute: MessagesRoute,
   PrivacyRoute: PrivacyRoute,
+  SettingsRoute: SettingsRoute,
   WellbeingRoute: WellbeingRoute,
 }
 export const routeTree = rootRouteImport
