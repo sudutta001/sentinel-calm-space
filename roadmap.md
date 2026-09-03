@@ -1,3 +1,3 @@
-- [ ] Continue SENTINEL milestone: finish missing wellness, assessment, chart, and route pieces
-- [ ] Verify all requested routes render and include unique metadata
-- [ ] Validate build and preview for runtime errors
+- [x] Continue SENTINEL milestone: wellness, assessment, chart, and route pieces
+- [x] Verify all routes render with unique metadata
+- [x] Validate typecheck, check-in flow, and preview for runtime errors
