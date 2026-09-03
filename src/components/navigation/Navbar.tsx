@@ -1,10 +1,17 @@
 "use client";
 
 import { Link } from "@tanstack/react-router";
-import { User } from "lucide-react";
+import { Inbox, MessageCircle, Settings, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Logo } from "@/components/layout/Logo";
 import { PrivacyIndicator } from "@/components/privacy/PrivacyIndicator";
+import { VercelIconsMenuWithTooltip } from "@/components/navigation/VercelIconsMenuWithTooltip";
+
+const quickMenuItems = [
+  { to: "/messages", label: "Messages", icon: MessageCircle, shortcut: "M" },
+  { to: "/inbox", label: "Inbox", icon: Inbox, badge: 3 },
+  { to: "/settings", label: "Settings", icon: Settings, shortcut: "⌘ S" },
+] as const;
 
 export interface NavItem {
   label: string;
