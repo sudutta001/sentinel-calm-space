@@ -2,7 +2,7 @@
 
 import type { LikertOption, LikertValue } from "@/lib/sentinel/types";
 
-interface LikertScaleProps { options: LikertOption[]; value?: LikertValue; onChange: (value: LikertValue) => void; }
+interface LikertScaleProps { options: LikertOption[]; value?: LikertValue | undefined; onChange: (value: LikertValue) => void; }
 
 export function LikertScale({ options, value, onChange }: LikertScaleProps) {
   return <div className="grid grid-cols-5 gap-2" role="radiogroup" aria-label="How often">
