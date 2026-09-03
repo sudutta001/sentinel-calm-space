@@ -18,7 +18,7 @@ export interface CheckInAnswer {
 
 export interface CheckInSubmission {
   answers: CheckInAnswer[];
-  reflection?: string;
+  reflection?: string | undefined;
   voiceNoteAttached?: boolean;
   submittedAt: string;
 }
