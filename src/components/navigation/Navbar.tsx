@@ -81,6 +81,12 @@ export function Navbar({ variant = "app" }: NavbarProps) {
         )}
 
         <div className="flex items-center gap-2">
+          {variant === "app" ? (
+            <VercelIconsMenuWithTooltip
+              items={[...quickMenuItems]}
+              className="hidden sm:inline-flex"
+            />
+          ) : null}
           <PrivacyIndicator className="hidden sm:inline-flex" />
           {variant === "app" ? (
             <Link
